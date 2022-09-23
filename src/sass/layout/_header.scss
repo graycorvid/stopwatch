@@ -1,0 +1,13 @@
+@use "../base/typography" as *;
+@use "../abstracts/mixins" as *;
+
+header {
+  @include centerFlex;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  h1 {
+    font-size: 2rem;
+    font-weight: $bold;
+    text-transform: $uppercase;
+  }
+}
