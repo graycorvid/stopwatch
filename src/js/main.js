@@ -1,7 +1,11 @@
 const stoper = document.querySelector("p.numbers");
+const warning = document.querySelector("p.warning");
 const btnStart = document.querySelector("button.start");
 const btnReset = document.querySelector("button.reset");
+const btnSave = document.querySelector("button.save");
+const btnClear = document.querySelector("button.clear");
 let start;
+let scores = [];
 let [mseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 
 const initiateTimer = () => {
@@ -79,8 +83,34 @@ const startTimer = () => {
   start = setInterval(formatTimer, 10);
 };
 
+const savesLimit = () => {
+  if (scores.length === 10) {
+    setTimeout(() => {
+      warning.classList.add("visible");
+    }, 10);
+    setTimeout(() => {
+      warning.classList.remove("visible");
+    }, 3500);
+    return;
+  } else {
+    saveTime();
+  }
+};
+
+const saveTime = () => {
+  const time = document.createElement("li");
+  time.style.listStyle = "none";
+  time.textContent = stoper.textContent;
+  scores.push(time);
+  document.querySelector("ul").appendChild(time);
+};
+
+const clearScores = () => {
+  document.querySelector("ul").innerHTML = "";
+  scores = [];
+};
+
 btnStart.addEventListener("click", initiateTimer);
 btnReset.addEventListener("click", resetTimer);
-
-// const btnClear = document.querySelector("button.clear");
-// const scores = document.querySelector(".list ul");
+btnSave.addEventListener("click", savesLimit);
+btnClear.addEventListener("click", clearScores);
