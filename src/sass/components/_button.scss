@@ -1,0 +1,19 @@
+@use "../abstracts/colors" as *;
+@use "../base/typography" as *;
+@use "../abstracts/mixins" as *;
+
+button {
+  all: unset;
+  margin: 0 0.2rem;
+  padding: 0.3rem 0.5rem;
+  text-transform: $uppercase;
+  font-weight: $bold;
+  text-align: center;
+  border: $color_watch 2px solid;
+  @include mediaQ(small) {
+    font-size: 2em;
+  }
+}
+.scores .clear {
+  padding: 0.3rem -1rem;
+}
