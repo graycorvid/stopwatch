@@ -1,5 +1,6 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/colors" as *;
+@use "../abstracts/variables" as *;
 
 .wrap {
   padding: 0 0.7rem;
@@ -8,6 +9,7 @@
   grid-template-rows: 15vh 40vh 1fr;
   gap: 1rem;
   min-height: 100vh;
+  min-width: 280px;
   color: $color_font;
   background-color: $color_background;
   overflow: hidden;
@@ -17,6 +19,7 @@ main {
   @include centerFlex;
   grid-column-start: 1;
   grid-column-end: 3;
+  min-height: 100px;
   background-color: $color_watchBGC;
 }
 
@@ -25,17 +28,34 @@ main {
   .numbers {
     font-size: 3rem;
     color: $color_watch;
+    @include mediaQ(small) {
+      font-size: 6.5em;
+    }
   }
   .warning {
     opacity: 0;
     font-size: 1rem;
     color: $color_warning;
+    @include mediaQ(small) {
+      margin-top: -1em;
+      font-size: 2.6em;
+    }
   }
   .visible {
     opacity: 1;
   }
 }
 
+.center {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  padding: 0;
+  font-size: 1em;
+  @include mediaQ(small) {
+    font-size: 2em;
+  }
+}
 .buttons {
   @include gridBTN;
   grid-template-columns: 1fr 1fr 1fr;
@@ -43,10 +63,8 @@ main {
 }
 .scores {
   @include gridBTN;
-  grid-template-rows: 5vh 1fr;
-  font-size: 0.8rem;
   text-align: center;
-}
-.center {
-  padding: 0;
+  @include mediaQ(small) {
+    margin-left: 25%;
+  }
 }

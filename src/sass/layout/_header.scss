@@ -9,5 +9,8 @@ header {
     font-size: 2rem;
     font-weight: $bold;
     text-transform: $uppercase;
+    @include mediaQ(small) {
+      font-size: 4em;
+    }
   }
 }
