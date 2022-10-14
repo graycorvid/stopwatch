@@ -12,5 +12,8 @@ header {
     @include mediaQ(small) {
       font-size: 4em;
     }
+    @include mediaQ(large) {
+      font-size: 5.5em;
+    }
   }
 }
