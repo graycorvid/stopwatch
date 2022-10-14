@@ -116,7 +116,3 @@
   btnSave.addEventListener("click", savesLimit);
   btnClear.addEventListener("click", clearScores);
 })();
-
-//RWD - dla wszystkich urządzeń (tylko nokia portrait sprawdzona). Może hover dla desktop wersji, jeśli będzie wyglądać lepiej - jak nie to zostaw tak jak jest teraz.
-
-/* jak ci się będzie chciało bawić to moesz zrobic media queries w mixins? ???? */
