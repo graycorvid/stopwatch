@@ -1,39 +1,19 @@
 {
   "name": "stopwatch",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:sass": "sass  --no-source-map src/sass:public/css",
-    "copy:html": "copyfiles -u 1 ./src/*.html public",
-    "copy": "npm-run-all --parallel copy:*",
-    "watch:html": "onchange 'src/*.html' -- npm run copy:html",
-    "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
-    "watch": "npm-run-all --parallel watch:*",
-    "serve": "browser-sync start --server public --files public",
-    "start": "npm-run-all copy --parallel watch serve",
-    "build": "npm-run-all copy:html build:*",
-    "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "browser-sync": "^3.0.2",
-    "copyfiles": "^2.4.1",
-    "cssnano": "^7.0.6",
-    "eslint": "^9.10.0",
-    "npm-run-all": "^4.1.5",
-    "onchange": "^7.1.0",
-    "postcss-cli": "^11.0.0",
-    "sass": "^1.78.0",
-    "send": ">=0.19.0",
-    "serve-static": ">=1.16.0"
+    "sass-dev": "sass --watch --style=expanded src/sass:src/css",
+    "sass-prod": "sass --no-source-map --style=compressed src/sass:src/css",
+    "build": "npm run sass-prod"
   },
   "dependencies": {
-    "axios": ">=0.28.0",
-    "chokidar": "^3.6.0",
-    "glob": "^11.0.0"
-  }
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "sass": "^1.49.8"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
